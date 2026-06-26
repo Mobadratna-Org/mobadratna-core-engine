@@ -1,11 +1,11 @@
 # 💻 Mobadratna Core Engine
 
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,100:0f172a&height=160&section=header&text=Mobadratna%20Core%20Engine&fontSize=42&fontColor=38bdf8&fontFamily=Outfit" width="100%" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,100:7c3aed&height=160&section=header&text=Mobadratna%20Core%20Engine&fontSize=42&fontColor=ffffff&fontFamily=Outfit" width="100%" />
 </div>
 
 <div align="center">
-  ![Node.js](https://img.shields.io/badge/Node.js-v18-green?logo=nodedotjs&style=for-the-badge) ![Express.js](https://img.shields.io/badge/Express.js-v4-black?logo=express&style=for-the-badge) ![PHP](https://img.shields.io/badge/PHP-v8-blue?logo=php&style=for-the-badge) ![MySQL](https://img.shields.io/badge/MySQL-v8-blue?logo=mysql&style=for-the-badge) ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+  ![PHP](https://img.shields.io/badge/PHP-v8-blue?logo=php&style=for-the-badge) ![MySQL](https://img.shields.io/badge/MySQL-v8-blue?logo=mysql&style=for-the-badge) ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 </div>
 
 ---
@@ -13,20 +13,20 @@
 ## 📌 Project Overview (Description)
 Secure, high-performance RESTful API engine built with raw PHP and MySQL to manage authentication, activity configurations, volunteer tracking, and administrative analytics.
 
-This codebase represents professional software development practices, clean module organization, and efficient code architectures tailored for high responsiveness and scalability.
+This codebase represents professional software development practices, clean database integrations, and secure backend coding standards.
 
 ---
 
 ## ⚡ The Engineering Challenge
 
 ### 🔴 Problem
-Developers building web solutions face difficulties handling state synchronization, styling inconsistencies, and complex configurations that clutter logic and trigger UI slowdowns or connection lifecycle failures.
+Building secure database-driven APIs requires careful management of connection states, prevention of security flaws like SQL injections, and managing custom sessions without third-party frameworks.
 
 ### 🟢 Solution
 This project implements:
-* **Separation of Concerns**: Structured module layouts separating design assets from operational logic.
-* **Optimized Rendering**: Efficient script logic and CSS layout variables to maintain lightweight UI paint times.
-* **Structured Coding Standards**: Written using clean semantic patterns ensuring readable code maintainability.
+* **PDO Database Protection**: Prepared statements to fully eliminate SQL injection vectors.
+* **HTTP Sessions Security**: Customized session handling wrapper keeping access state protected.
+* **REST Routing Protocol**: Native handlers to manage JSON requests and response formatting safely.
 
 ---
 
@@ -34,10 +34,13 @@ This project implements:
 The internal layout structures are separated logically:
 ```text
 mobadratna-core-engine/
-├── css/ or styles/      # Styling engines and layouts
-├── js/ or src/          # Source scripts and business logic
-├── index.html or app.js # Operational entry point
-└── README.md            # System documentation
+├── admin/               # Administrative backend panels
+├── uploads/             # Server file upload storage
+├── api.php              # API Endpoint entry routing point
+├── config.php           # Core global configuration parameters
+├── database.php         # PDO connection pooling initializer
+├── database.sql         # SQL scheme migration script
+└── helpers.php          # Utility methods for validations
 ```
 
 ---
@@ -46,8 +49,6 @@ mobadratna-core-engine/
 
 | Technology | Purpose |
 | :--- | :--- |
-| Node.js | Server-side JavaScript runtime |
-| Express | RESTful API server framework |
 | PHP | Scripting language for backend logic |
 | MySQL | Relational database storage |
 
@@ -56,22 +57,22 @@ mobadratna-core-engine/
 ## 🚀 Local Developer Setup & Run
 
 ### 📋 Prerequisites
-* Modern web browser / Node.js runtime (depending on project stack)
+* PHP v8.0+ and MySQL database (e.g., Apache/MySQL inside XAMPP)
 
 ### ⚙️ Quick Start Steps
 ```bash
-    git clone https://github.com/Mobadratna-Org/mobadratna-core-engine.git
-    cd mobadratna-core-engine
-    npm install
-    npm run dev
+git clone https://github.com/Mobadratna-Org/mobadratna-core-engine.git
+cd mobadratna-core-engine
+# Import database.sql inside MySQL database
+# Set database parameters inside config.php / database.php
+# Host directory on Apache root directory (htdocs) and access it
 ```
 
 ---
 
 ## 🔮 Future Improvements
-* [ ] Integrate automated unit testing.
-* [ ] Add dynamic dark/light theme switcher.
-* [ ] Improve responsiveness on extra-small mobile screen viewports.
+* [ ] Migrate database schemas to Laravel Eloquent ORM.
+* [ ] Integrate JWT tokens for API stateless authentication.
 
 ---
 
