@@ -5,7 +5,7 @@
 </div>
 
 <div align="center">
-  ![PHP](https://img.shields.io/badge/PHP-v8-blue?logo=php&style=for-the-badge) ![MySQL](https://img.shields.io/badge/MySQL-v8-blue?logo=mysql&style=for-the-badge) ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+  <img src="https://img.shields.io/badge/PHP-v8-blue?logo=php&style=for-the-badge" alt="PHP" /> <img src="https://img.shields.io/badge/MySQL-v8-blue?logo=mysql&style=for-the-badge" alt="MySQL" /> <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License" />
 </div>
 
 خادم **مبادرتنا البرمجي** هو محرك سحابي متكامل يعتمد على لغة PHP وقاعدة بيانات MySQL لمعالجة طلبات التطوع وإدارة برامج الأنشطة وحسابات المسؤولين وتوثيق البيانات الإحصائية للتقارير الجامعية.
