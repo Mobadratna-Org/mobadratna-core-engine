@@ -1,4 +1,4 @@
-# 💻 Mobadratna Core Engine
+# Mobadratna Core Engine: Secure PHP RESTful API & Administrative Engine
 
 <div align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,100:7c3aed&height=160&section=header&text=Mobadratna%20Core%20Engine&fontSize=42&fontColor=ffffff&fontFamily=Outfit" width="100%" />
@@ -8,76 +8,86 @@
   ![PHP](https://img.shields.io/badge/PHP-v8-blue?logo=php&style=for-the-badge) ![MySQL](https://img.shields.io/badge/MySQL-v8-blue?logo=mysql&style=for-the-badge) ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 </div>
 
----
+خادم **مبادرتنا البرمجي** هو محرك سحابي متكامل يعتمد على لغة PHP وقاعدة بيانات MySQL لمعالجة طلبات التطوع وإدارة برامج الأنشطة وحسابات المسؤولين وتوثيق البيانات الإحصائية للتقارير الجامعية.
 
-## 📌 Project Overview (Description)
-Secure, high-performance RESTful API engine built with raw PHP and MySQL to manage authentication, activity configurations, volunteer tracking, and administrative analytics.
-
-This codebase represents professional software development practices, clean database integrations, and secure backend coding standards.
+This repository contains the backend RESTful API services, security filters, database schema migrations, and administration dashboard controllers for the **Mobadratna Ecosystem**.
 
 ---
 
-## ⚡ The Engineering Challenge
+## 🧬 Backend Services & API Handlers
 
-### 🔴 Problem
-Building secure database-driven APIs requires careful management of connection states, prevention of security flaws like SQL injections, and managing custom sessions without third-party frameworks.
+The backend engine provides core endpoints and files:
 
-### 🟢 Solution
-This project implements:
-* **PDO Database Protection**: Prepared statements to fully eliminate SQL injection vectors.
-* **HTTP Sessions Security**: Customized session handling wrapper keeping access state protected.
-* **REST Routing Protocol**: Native handlers to manage JSON requests and response formatting safely.
+1.  **API Gateway Router (`api.php`)**: Unified routing processor handling requests for initiatives, volunteer submissions, status approvals, and database updates.
+2.  **Database Connection Config (`config.php`, `database.php`)**: Secure PDO initialization parameters and connection pools.
+3.  **Security Helpers (`helpers.php`)**: Validation layers providing clean database input filters and XSS/SQL Injection protection.
+4.  **Database Schema Migration (`database.sql`)**: Structural tables mapping user credentials, initiatives list, and voluntary enrollment records.
+5.  **Administrative Panels (`admin/`)**: Sub-folders managing administrative tasks like initiative approvals, stats tracking, and user authorizations.
 
 ---
 
-## 🧬 System Architecture
-The internal layout structures are separated logically:
-```text
-mobadratna-core-engine/
-├── admin/               # Administrative backend panels
-├── uploads/             # Server file upload storage
-├── api.php              # API Endpoint entry routing point
-├── config.php           # Core global configuration parameters
-├── database.php         # PDO connection pooling initializer
-├── database.sql         # SQL scheme migration script
-└── helpers.php          # Utility methods for validations
+## 🧬 API Data & Security Flow
+
+The REST engine handles secure request lifecycles:
+
+```mermaid
+graph TD
+    Client[Frontend Client Request] -->|JSON Payload| Router[api.php - API Gateway Router]
+    Router -->|Input Validation| Filter[helpers.php - Sanitize & Check]
+    Filter -->|Valid| DBConnect[database.php - PDO Secure Connection]
+    Filter -->|Invalid Parameters| Err[Return HTTP 400 Bad Request JSON]
+    DBConnect -->|Execute Prepared SQL Statement| MySQL[(MySQL Database)]
+    MySQL -->|Return Rowset / Result| Router
+    Router -->|JSON Output Response| Client
 ```
 
 ---
 
-## 🛠️ Technology Stack
+## 🛠️ Technology Stack & Security Features
 
-| Technology | Purpose |
-| :--- | :--- |
-| PHP | Scripting language for backend logic |
-| MySQL | Relational database storage |
+*   **Runtime Backend**: Written in clean raw **PHP 8.0+** to ensure maximum execution speeds.
+*   **Relational Storage**: Powered by **MySQL** mapping relationships between initiatives and volunteers.
+*   **Database Access Security**: Implemented strictly using **PHP Data Objects (PDO)** prepared statements to prevent SQL Injection exploits.
+*   **HTTP Protocol Access**: CORS headers and JSON response formatting for integration with static clients.
 
 ---
 
-## 🚀 Local Developer Setup & Run
+## 📂 Repository Module Layout
+
+```text
+mobadratna-core-engine/
+├── admin/               # Administrative backend managers and dashboards
+├── uploads/             # Server directory storing poster attachments
+├── api.php              # API global router endpoint
+├── config.php           # Global configuration values
+├── database.php         # PDO database connection pool
+├── database.sql         # Database schema structure migrations script
+└── helpers.php          # Validation, session, and sanitization utilities
+```
+
+---
+
+## ⚡ Local Setup & Execution
 
 ### 📋 Prerequisites
-* PHP v8.0+ and MySQL database (e.g., Apache/MySQL inside XAMPP)
+* Local Web server running PHP 8.0+ and MySQL (e.g. XAMPP, Laragon, or Docker)
 
 ### ⚙️ Quick Start Steps
 ```bash
+# 1. Clone the backend repository inside Apache root folder (e.g. htdocs)
 git clone https://github.com/Mobadratna-Org/mobadratna-core-engine.git
 cd mobadratna-core-engine
-# Import database.sql inside MySQL database
-# Set database parameters inside config.php / database.php
-# Host directory on Apache root directory (htdocs) and access it
+
+# 2. Setup Database
+# Create database named 'mobadratna' in MySQL phpMyAdmin
+# Import 'database.sql' schema script
+
+# 3. Configure Database connection
+# Edit config.php and set database credentials (db_user, db_pass, host)
+
+# 4. Run Apache & Test API endpoints
+# Query the API: http://localhost/mobadratna-core-engine/api.php
 ```
-
----
-
-## 🔮 Future Improvements
-* [ ] Migrate database schemas to Laravel Eloquent ORM.
-* [ ] Integrate JWT tokens for API stateless authentication.
-
----
-
-## 👥 Contributors
-* **Sayed Herzallah** - Lead Developer & Systems Architect
 
 ---
 
